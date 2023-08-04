@@ -1,0 +1,18 @@
+<nav class="navbar">
+  <div class="container-fluid">
+    <a style="color:white;" class="navbar-brand mb-0 h1" routerLink="/">Sales Forecasting Application</a>
+    <div class="d-flex">
+      <ng-container *ngIf="this.auth.isAuthenticated();then authenticated;else notAuthenticated">
+
+      </ng-container>
+      <ng-template #notAuthenticated>
+          <button routerLink="/signin" class="btn btn-danger mx-2">SignIn</button>
+          <button routerLink="/signup" class="btn btn-danger mx-2">SignUp</button>
+      </ng-template>
+      <ng-template #authenticated>
+          <button routerLink="/dashboard" class="btn btn-danger mx-2">Dashboard</button>
+          <button routerLink="" class="btn btn-danger mx-2" (click)="logout()">Logout</button>
+      </ng-template>
+    </div>
+  </div>
+</nav>

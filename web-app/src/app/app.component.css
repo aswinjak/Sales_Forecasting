@@ -1,0 +1,6 @@
+.whole{
+    height:100vh;
+    background-image: url(../app/home/image1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}

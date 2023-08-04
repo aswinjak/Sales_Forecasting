@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+  <div class="card text-center">
+    <form>
+      <div class="card-header">
+        <h1> How to predict</h1>
+      </div>
+      <div class="card-body">
+        <div class="mb-3">
+          <div class="mb-3">
+            <label for="formFile" class="form-label"></label>
+            <input class="form-control" type="file" id="formFile" (change)="getFile()" multiple="false" accept="*.csv">
+          </div>
+          <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="period" name="period" [(ngModel)]="period">
+            <option selected>Select</option>
+            <option value="weekly">Weekly</option>
+            <option value="monthly">Monthly</option>
+            <option value="yearly">Yearly</option>
+          </select>
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Periodicity</span>
+          <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" name="count" id="count" [(ngModel)]="count">
+        </div>
+        <button class="btn btn-primary mx-2" (click)="send()">Predict</button>
+      </div>
+    </form>
+  </div>
+  <div *ngIf="visible()">
+    <img src="http://127.0.0.1:5000/getoutput" width="100%">
+  </div>
+
+  
+

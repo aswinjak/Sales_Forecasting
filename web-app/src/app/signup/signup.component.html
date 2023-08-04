@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-center">
+                    <h1>SignUp</h1>
+                    <h6>Register</h6>
+                </div>
+                <form>
+                    <form class="register-form" action="" #f="ngForm" novalidate (ngSubmit)="f.form.valid&&onSubmit()">
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Name</label>
+                            <input type="text" class="form-control" name="name" id="exampleInputPassword1" [(ngModel)]="formdata.name" #name="ngModel" placeholder="Name" required>
+                            <span class="text-danger" *ngIf="this.submit&&name.errors?.['required']">
+                                Name is Required.
+                            </span>    
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Email address</label>
+                            <input type="email" class="form-control" name="email" id="exampleInputEmail1" [(ngModel)]="formdata.email" #email="ngModel" placeholder="Email" required>
+                            <span class="text-danger" *ngIf="this.submit&&email.errors?.['required']">
+                                Email is Required.
+                            </span>  
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Password</label>
+                            <input type="password" class="form-control" name="password" id="exampleInputPassword1" [(ngModel)]="formdata.password" #password="ngModel" placeholder="Password" required>
+                            <span class="text-danger" *ngIf="this.submit&&password.errors?.['required']">
+                                Password is Required.
+                            </span>  
+                        </div>
+                        <button type="submit" class="btn btn-primary mb-2" (click)="submit=true">SignUp</button>
+                     </form>
+                     <a style="color:white; margin-top: 10px" routerLink="/signin">Already Registered !! SignIn</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
